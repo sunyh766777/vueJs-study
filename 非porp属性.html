@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>非prop属性</title>
+    <script src="../前端js包/vue.js"></script>
+</head>
+<body>                                          
+    <div id="app">
+        <show-test id="121" style="color: blue;" class="abb"></show-test>
+    </div>
+    <script>
+
+        Vue.component("show-test", {
+            inheritAttrs: false,
+            // props:{
+            //     author: Number,
+            //     author1: String,
+            // },
+            template:"<input type='date' style='border-style: dotted;'  class='form-control' id ='1111'>"
+        })
+        var app = new Vue({
+            el:"#app",
+        })
+    </script>
+</body>
+</html>

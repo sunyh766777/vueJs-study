@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../前端js包/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <blog-post size="ABC"></blog-post>
+    </div>
+
+    <script>
+        
+        Vue.component("blog-post", {
+            props:['size'],
+            computed:{
+				normalizedSize:function(){
+					return this.size.trim().toLowerCase()
+				}
+			},
+            template:"<h3>{{normalizedSize}}</h3>"
+        })
+
+        var app = new Vue({
+            el: "#app"
+        })
+
+    </script>
+
+</body>
+</html>

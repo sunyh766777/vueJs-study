@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class与style绑定二</title>
+    <script src="../前端js包/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 数组内部可以为对象，也可以加判断 -->
+         <div v-bind:class="[isActive ? activeClass : '', errorClass, {typeface: isTypeface}]"    
+             class="text"
+             style="width: 200px; height: 200px; text-align: center; line-height: 200px; ">eeee</div>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data() {
+                return {
+                    activeClass: "active",    
+                    isActive: true,
+                    errorClass: 'text-danger',
+                    isFontStyle: true,
+                    isTypeface: true
+                }
+            },
+        })
+    </script>
+
+    <style>
+        .active{
+            background: blue;     /*背景颜色*/
+        }
+        .text-danger{
+            border-style: dotted;
+        }
+        .text{
+            font-size: 30px;    /*字体大小*/
+        }
+        .typeface{
+            font-style: oblique;
+        }
+    </style>
+</body>
+</html>

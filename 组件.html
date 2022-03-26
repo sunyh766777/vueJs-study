@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组件基础</title>
+    <script src="../前端js包/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>{{num}}</h1> </br>  
+        <blog-post title="这是一条狗" v-bind:likes="20" isPublished="false" 
+            v-bind:comment-ids="[1,2,3]" v-bind:author="{name:'lijun',age:19}">
+        </blog-post>
+    </div>
+    <script>
+
+        Vue.component("blog-post",{
+            props: {
+                title: String,
+                likes: Number,
+                isPublished: Boolean,
+                commentIds: Array,
+                author: Object,
+                callback: Function,
+                contactsPromise: Promise // or any other constructor
+            },
+            template: "<h3>" +
+                        "<div>title的值：{{title}}</div> " +
+                        "<div>likes的值：{{likes}}</div>" +
+                        "<div>isPublished的值：{{isPublished}}</div>" +
+                        "<div>commentIds的值：{{commentIds}}</div>" +
+                        "<div>author的值：{{author}}</div>" +
+                      "</h3>"
+        })
+
+        var app = new Vue({
+            el: "#app",
+            data() {
+                return {
+                    num: "Prop练习"
+                }
+            },    
+        })
+
+    </script>
+</body>
+</html>

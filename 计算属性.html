@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算属性</title>
+    <script src="../前端js包/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="button" v-on:click="show"> <br>
+        message:{{message}} <br> 
+        <!-- message 还没有发生改变，多次访问 reversedMessage 计算属性会立即返回之前的计算结果，而不必再次执行函数。 -->
+        reverseTest:{{reverseTest}}
+    </div>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data() {
+                return {
+                    message:"hello",
+                }
+            },
+            computed: {
+                reverseTest: function() {
+                    return this.message.split('').reverse().join('')
+                }
+            },
+            methods: {
+                show: function(){
+                    this.message = "good"
+                }
+            },
+            
+        })
+    </script>
+</body>
+</html>
