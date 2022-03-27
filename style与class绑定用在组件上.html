@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class与组件绑定用在组件上</title>
+    <script src="../前端js包/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <my-component v-bind:class="{ active: isActive }" class="baz boo"></my-component>
+    </div>
+
+    <script>
+        Vue.component('my-component',{template: '<p class="foo bar">Hi</p>'})
+        var app = new Vue({
+            el:"#app",
+            data() {
+                return {
+                    isActive:true
+                }
+            },
+        })
+    </script>
+
+    <style>
+        .active{
+            font-size: 50px;
+        }
+    </style>
+</body>
+</html>
